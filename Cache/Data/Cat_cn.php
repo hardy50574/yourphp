@@ -1,0 +1,2 @@
+<?php
+return array ( 'cp1' => '5', 'cp2' => '6', 'cp3' => '7', 'cp4' => '9', 'contactus' => '12', 'down' => '17', 'Feedback' => '18', 'model' => '21', 'hangye' => '2', 'phnom' => '25', 'westport' => '26', 'zixun' => '10', 'cp5' => '13', 'environment' => '20', 'info' => '11', 'pics' => '14', 'news' => '1', 'Product' => '4', 'Guestbook' => '19', 'about' => '8', ); ?>

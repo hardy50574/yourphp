@@ -1,0 +1,1 @@
+[01-Jan-2018 12:00:08 PRC] PHP Warning:  file_get_contents(/home/hardy52610/public_html//Cache/setup.config.php): failed to open stream: No such file or directory in /home/hardy52610/public_html/Install/index.php on line 258

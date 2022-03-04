@@ -1,0 +1,39 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><base href="<?php echo ($site_url); ?>/" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta name="robots" content="index, follow" /><meta name="keywords" content="<?php echo ($seo_keywords); ?>" /><meta name="description" content="<?php echo ($seo_description); ?>" /><meta name="Copyright" content="Copyright (c) 2008 yourphp.cn" /><meta name="author" content="<?php echo ($site_name); ?>--Powered by yourphp"><meta name="generator" content="Yourphp 2.0" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /><title><?php echo ($seo_title); ?>-<?php echo ($site_name); ?> - Powered by Yourphp</title><link href="__ROOT__/index.php?m=Format&a=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0" /><script src="__PUBLIC__/Js/jquery.min.js"></script><script src="__PUBLIC__/Js/jquery.validate.js"></script><script src="__PUBLIC__/Js/yourphp.js"></script><link rel="stylesheet" type="text/css" href="../Public/css/member.css" /></head><body><div id="user_header"><div class="box"><div class="logined"><?php if( $_COOKIE['YP_username']) : echo cookie('username'); else : echo L(guest); endif;?> ,<?php echo L(welcome_return);?> |   
+	
+	<?php if( $_COOKIE['YP_username']) : ?><a id="logout_url" href="<?php echo URL('User-Login/logout');?>"><?php echo L(logout);?></a><?php else :?><a href="<?php echo URL('User-Login/index');?>&forward=<?php echo (urlencode($forward)); ?>"><?php echo L(user_login);?></a> | 
+	<a href="<?php echo URL('User-Register/index');?>&forward=<?php echo (urlencode($forward)); ?>" target="_top" /><?php echo L(REGISTER);?></a><?php endif;?></div><div class="logo"><img src="<?php echo ($logo); ?>"></div></div></div><script type="text/javascript">
+var APP	 =	 '__APP__';
+var ROOT =	 '__ROOT__';
+var PUBLIC = '__PUBLIC__';
+</script><div id="member"><?php if($module_name!='Login' && $module_name!='Register' ) : ?><div class="pos"><?php echo L(catpos);?><a href="<?php echo URL();?>"><?php echo L(home_font);?></a> ><a href="<?php echo URL('User-Index/index');?>"><?php echo L(user_center);?></a></div><div class="left-memu"><?php if( $user_menu) : ?><h5 class="title"><b><img src="../Public/images/m_1.png" width="15" height="15" /><?php echo L(user_post_online);?></b></h5><ul><?php if(is_array($user_menu)): $i = 0; $__LIST__ = $user_menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?><li ><span><a href="<?php echo URL('User-Post/add?moduleid='.$r['id']);?>"><?php echo L(user_post);?></a></span><a href="<?php echo URL('User-Post/index?moduleid='.$r['id']);?>"><img src="../Public/images/m_2.png" width="14" height="15" /><?php echo L($r['name']);?></a></li><?php endforeach; endif; else: echo "" ;endif; ?></ul><?php endif;?><h5 class="title"><b><img src="../Public/images/coins.png" width="15" height="15" /><?php echo L(user_pay_manage);?></b></h5><ul><?php if( $_COOKIE['userid']) : ?><li><a href="<?php echo URL('User-Pay/pay');?>"><img src="../Public/images/m_4.png" width="15" height="16" /><?php echo L(user_pay_recharge);?></a></li><?php endif;?><!--<li><a href="<?php echo URL('User-Pay/index');?>"><img src="../Public/images/m_8.png" width="16" height="16" /><?php echo L(user_Payment_records);?></a></li>--><li><a href="<?php echo URL('User-Order/index');?>"><img src="../Public/images/table-information.png" width="16" height="16" /><?php echo L(user_order_query);?></a></li><!--
+			<li><a href="<?php echo URL('User-Pay/spend');?>"><img src="../Public/images/table-information.png" width="16" height="16" /><?php echo L(user_Consumption_record);?></a></li><li><a href="<?php echo URL('User-Index/change_credit');?>"><img src="../Public/images/coins_add.png" width="16" height="16" /><?php echo L(user_Integral_buy_Exchange);?></a></li>
+			--></ul><?php if( $_COOKIE['YP_userid']) : ?><h5 class="title"><b><img src="../Public/images/home.png" width="15" height="15" /><a href="<?php echo URL('User-Index/index');?>"><?php echo L(user_center);?></a></b></h5><ul><li><a href="<?php echo URL('User-Index/profile');?>"><img src="../Public/images/user_edit.png" width="16" /><?php echo L(user_edit_profile);?></a></li><li><a href="<?php echo URL('User-Index/avatar');?>"><img src="../Public/images/vcard.png" width="16" /><?php echo L(user_edit_avatar);?></a></li><li><a href="<?php echo URL('User-Index/password');?>"><img src="../Public/images/icon_key.gif" width="16" height="16" /><?php echo L(user_edit_email_password);?></a></li><li><a href="<?php echo URL('User-Login/logout');?>"><img src="../Public/images/computer_key.png" width="16" height="16" /><?php echo L(logout);?></a></li><!--<li><a href="<?php echo URL('User-Index/edit');?>"><img src="../Public/images/Upload.png" /><?php echo L(user_group_upgrade);?></a></li>--></ul><?php endif;?></div><?php endif;?><script type="text/javascript" src="__PUBLIC__/Js/jquery.validate.js"></script><script type="text/javascript" src="__PUBLIC__/Js/jquery.form.js"></script><div class="main"><h3><?php echo L(USER_GET_PASSWORD);?></h3><div class="block-msg"><div id="sendmail_form"><form method="post" id="myform" action="<?php echo URL('User-Login/sendmail');?>"><table width="100%"><tr><td width="160" align="right" height="35px">&nbsp;</td><td><div id="result"></div></td></tr><tr><td align="right" height="35px"><?php echo L(user_username);?>：</td><td><input type="text" id="username" name="username" class="input-text" /></td></tr><tr><td align="right" height="35px"><?php echo L(EMAIL);?>：</td><td><input type="text" id="email" name="email" class="input-text" validate="required:true,email:true, minlength:1, maxlength:40"  /></td></tr><tr><td align="right" height="35px"><?php echo L(VERIFY);?>：</td><td><input name="verifyCode" class="input-text"  class="inputbox" id="verifyCode"  size="6" value="" maxlength="4" /><img src="<?php echo U('Home/Index/verify');?>" onclick="javascript:resetVerifyCode();" class="checkcode" align="absmiddle"  title="<?php echo L('resetVerifyCode');?>" id="verifyImage"/></td></tr><tr><td>&nbsp;</td><td height="50px"><input type="hidden" name="ajax" value="1"><INPUT TYPE="submit"  value="<?php echo L('USER_GET_PASSWORD');?>" class="button" ></td></tr></table></form></div><div id="sendmailok">尊敬的会员 <span id="send_username"></span>您好，重置密码信息已发送至您的邮箱 <span id="send_email"></span>，<br>请注意查收，密码修改请在72小时内完成。<br>如果没有收到密码重置邮件，请到垃圾邮箱中找找看，或者点击<a href="<?php echo U('User/Login/getpass');?>">重置密码</a>。
+
+</div></div></div><style>
+#sendmailok{display:none;padding:15px;line-height:24px;}
+#send_username ,#result ,#send_email{font-weight:bold;color:#FB0000;}
+</style><script language="JavaScript">
+jQuery(document).ready(function($){
+	$('#myform').ajaxForm({
+		beforeSend:function(){
+			$('#result').html('<img src="__PUBLIC__/Images/msg_loading.gif">').show();;
+		 },
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+});
+function complete(data){
+	if (data.status==1)
+	{
+		 $('#sendmail_form').hide();
+		 $('#sendmailok').show();
+		 $('#send_username').html(data.data.username);
+		 $('#send_email').html(data.data.email);
+	}else{
+		$('#result').html(data.info).show();
+	}
+}
+ 
+</script><div id="user_footer"><a href="/"><?php echo L('HOME_FONT');?></a><?php $n=0;foreach($Categorys as $key=>$r):if( $r['ismenu']==1 && intval(0)==$r["parentid"] ) :++$n;?>|  <a href="<?php echo ($r["url"]); ?>"><?php echo ($r["catname"]); ?></a><?php endif; endforeach;?><br>
+	Powered by <?php if(!YP_KEY) : ?><a href="http://www.yourphp.cn">Yourphp <?php echo VERSION;?></a><?php else :?><a href="<?php echo ($site_url); ?>"><?php echo ($site_name); ?></a><?php endif;?>  © 2011  
+	</div></div></body></html>
